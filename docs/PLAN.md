@@ -32,7 +32,7 @@ Success: user approval.
 
 Tests:
 - [x] pytest: health endpoint returns 200 and expected JSON; `/` returns the HTML page
-- [ ] Manual: `scripts/start.ps1` brings up the container; browser at `http://127.0.0.1:8000` shows hello world and the API result; `scripts/stop.ps1` stops it
+- [x] Manual: `scripts/start.ps1` brings up the container and the app responds at `http://127.0.0.1:8000`; `scripts/stop.ps1` removes it (checked in Part 6, data kept across stop/start)
 
 Success: container starts with one command, page and API call work, stop script cleans up.
 
