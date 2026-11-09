@@ -20,6 +20,10 @@ const drag = async (page: Page, source: Locator, target: Locator, offsetY?: numb
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
+  await page.getByLabel("Username").fill("user");
+  await page.getByLabel("Password").fill("password");
+  await page.getByRole("button", { name: "Sign in" }).click();
+  await expect(page.locator('[data-testid^="column-"]')).toHaveCount(5);
 });
 
 test("loads the kanban board", async ({ page }) => {

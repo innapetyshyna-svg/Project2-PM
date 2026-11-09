@@ -6,12 +6,12 @@ const getFirstColumn = () => screen.getAllByTestId(/column-/i)[0];
 
 describe("KanbanBoard", () => {
   it("renders five columns", () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     expect(screen.getAllByTestId(/column-/i)).toHaveLength(5);
   });
 
   it("renames a column on Enter", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const input = within(getFirstColumn()).getByLabelText("Column title");
     await userEvent.clear(input);
     await userEvent.type(input, "New Name{Enter}");
@@ -22,7 +22,7 @@ describe("KanbanBoard", () => {
   });
 
   it("renames a column on blur", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const input = within(getFirstColumn()).getByLabelText("Column title");
     await userEvent.clear(input);
     await userEvent.type(input, "Blurred");
@@ -31,14 +31,14 @@ describe("KanbanBoard", () => {
   });
 
   it("does not commit the column title while typing", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const input = within(getFirstColumn()).getByLabelText("Column title");
     await userEvent.type(input, " draft");
     expect(screen.getByRole("banner")).not.toHaveTextContent("Backlog draft");
   });
 
   it("reverts the column title on Escape", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const input = within(getFirstColumn()).getByLabelText("Column title");
     await userEvent.clear(input);
     await userEvent.type(input, "Discarded{Escape}");
@@ -47,7 +47,7 @@ describe("KanbanBoard", () => {
   });
 
   it("reverts an empty column title", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const input = within(getFirstColumn()).getByLabelText("Column title");
     await userEvent.clear(input);
     await userEvent.tab();
@@ -55,7 +55,7 @@ describe("KanbanBoard", () => {
   });
 
   it("adds and removes a card", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const column = getFirstColumn();
     const addButton = within(column).getByRole("button", {
       name: /add a card/i,
@@ -80,7 +80,7 @@ describe("KanbanBoard", () => {
   });
 
   it("adds a card with default details", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const column = getFirstColumn();
     await userEvent.click(within(column).getByRole("button", { name: /add a card/i }));
     await userEvent.type(within(column).getByPlaceholderText(/card title/i), "Bare");
@@ -89,7 +89,7 @@ describe("KanbanBoard", () => {
   });
 
   it("does not add a card with a blank title", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const column = getFirstColumn();
     await userEvent.click(within(column).getByRole("button", { name: /add a card/i }));
     await userEvent.type(within(column).getByPlaceholderText(/card title/i), "   ");
@@ -98,7 +98,7 @@ describe("KanbanBoard", () => {
   });
 
   it("cancels adding a card and clears the form", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     const column = getFirstColumn();
     await userEvent.click(within(column).getByRole("button", { name: /add a card/i }));
     await userEvent.type(within(column).getByPlaceholderText(/card title/i), "Draft");
@@ -110,7 +110,7 @@ describe("KanbanBoard", () => {
   });
 
   it("edits a card", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     await userEvent.click(
       screen.getByRole("button", { name: "Edit Align roadmap themes" })
     );
@@ -129,7 +129,7 @@ describe("KanbanBoard", () => {
   });
 
   it("cancels editing a card", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     await userEvent.click(
       screen.getByRole("button", { name: "Edit Align roadmap themes" })
     );
@@ -140,7 +140,7 @@ describe("KanbanBoard", () => {
   });
 
   it("does not save a card with a blank title", async () => {
-    render(<KanbanBoard />);
+    render(<KanbanBoard onLogout={() => {}} />);
     await userEvent.click(
       screen.getByRole("button", { name: "Edit Align roadmap themes" })
     );

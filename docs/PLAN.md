@@ -55,14 +55,14 @@ Success: Kanban demo is served by FastAPI at `/` from the container; unit covera
 
 ## Part 4: Fake user sign in
 
-- [ ] Backend: `POST /api/login` (JSON `username`, `password`), `POST /api/logout`, `GET /api/me`; session cookie via `SessionMiddleware` with secret from env (default for local dev)
-- [ ] Frontend: on load call `/api/me`; show login form if 401, board if signed in; logout button in header; error message on wrong credentials
-- [ ] Login form styled with the project color scheme
+- [x] Backend: `POST /api/login` (JSON `username`, `password`), `POST /api/logout`, `GET /api/me`; session cookie via `SessionMiddleware` with secret from env (default for local dev)
+- [x] Frontend: on load call `/api/me`; show login form if 401, board if signed in; logout button in header; error message on wrong credentials
+- [x] Login form styled with the project color scheme
 
 Tests:
-- [ ] pytest: login success sets cookie, wrong credentials return 401, `/api/me` with and without session, logout clears session
-- [ ] Unit: login form submit, error display, logout returns to login screen (fetch mocked)
-- [ ] E2E: unauthenticated visit shows login; wrong password shows error; correct login shows board; logout returns to login; reload keeps session
+- [x] pytest: login success sets cookie, wrong credentials return 401, `/api/me` with and without session, logout clears session
+- [x] Unit: login form submit, error display, logout returns to login screen (fetch mocked)
+- [x] E2E: unauthenticated visit shows login; wrong password shows error; correct login shows board; logout returns to login; reload keeps session
 
 Success: board only visible after login with `user` / `password`; logout works; coverage >= 80% on both sides.
 
