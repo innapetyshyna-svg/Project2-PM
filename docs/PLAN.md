@@ -83,22 +83,22 @@ Success: user sign-off on schema and approach.
 
 ## Part 6: Backend
 
-- [ ] `backend/app/db.py`: sqlite3 connection, schema creation if db missing, seed user's board with 5 default columns on first login
-- [ ] Routes (all require session, all scoped to the signed-in user's board):
+- [x] `backend/app/db.py`: sqlite3 connection, schema creation if db missing, seed user's board with 5 default columns on first login
+- [x] Routes (all require session, all scoped to the signed-in user's board):
   - `GET /api/board` - full board (columns with ordered cards)
   - `PATCH /api/columns/{id}` - rename
   - `POST /api/cards` - create in column (appended at end)
   - `PATCH /api/cards/{id}` - edit title/details
   - `POST /api/cards/{id}/move` - `column_id`, `position`; reindexes positions in source and target columns
   - `DELETE /api/cards/{id}`
-- [ ] Pydantic request/response models
-- [ ] Shared board service functions (used later by AI operations)
+- [x] Pydantic request/response models
+- [x] Shared board service functions (used later by AI operations)
 
 Tests:
-- [ ] DB created from scratch in a temp dir; reopening an existing DB keeps data
-- [ ] Each route: success, 401 without session, 404 for ids of another user's board or missing ids, 422 for invalid input
-- [ ] Move: within column up/down, across columns, to empty column, to end; positions stay contiguous
-- [ ] Coverage >= 80%
+- [x] DB created from scratch in a temp dir; reopening an existing DB keeps data
+- [x] Each route: success, 401 without session, 404 for ids of another user's board or missing ids, 422 for invalid input
+- [x] Move: within column up/down, across columns, to empty column, to end; positions stay contiguous
+- [x] Coverage >= 80%
 
 Success: all backend tests pass; board state persists across container restarts.
 
