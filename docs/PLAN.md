@@ -38,18 +38,18 @@ Success: container starts with one command, page and API call work, stop script 
 
 ## Part 3: Add in Frontend
 
-- [ ] Update frontend dependencies to latest versions (next, react, vitest, @vitest/coverage-v8, @vitejs/plugin-react, jsdom, eslint, typescript, @types/node, etc.); fix any breakage; existing unit tests, lint and build pass
-- [ ] `next.config.ts`: `output: "export"`
-- [ ] Dockerfile Node stage builds the frontend and copies `out/` into the Python stage as static files
-- [ ] Remove the placeholder HTML; add `backend/static/` (build output) to `.gitignore`
-- [ ] Add card editing (title and details, inline edit with save/cancel) to `KanbanCard`
-- [ ] Column rename commits on blur/Enter (Escape reverts) instead of on each keystroke, so Part 7 can save it with one API call
-- [ ] Vitest coverage thresholds at 80% in `vitest.config.ts`
-- [ ] Playwright config points at `http://127.0.0.1:8000` (container) instead of `next dev`
+- [x] Update frontend dependencies to latest versions (next, react, vitest, @vitest/coverage-v8, @vitejs/plugin-react, jsdom, eslint, typescript, @types/node, etc.); fix any breakage; existing unit tests, lint and build pass
+- [x] `next.config.ts`: `output: "export"`
+- [x] Dockerfile Node stage builds the frontend and copies `out/` into the Python stage as static files
+- [x] Remove the placeholder HTML; add `backend/static/` (build output) to `.gitignore`
+- [x] Add card editing (title and details, inline edit with save/cancel) to `KanbanCard`
+- [x] Column rename commits on blur/Enter (Escape reverts) instead of on each keystroke, so Part 7 can save it with one API call
+- [x] Vitest coverage thresholds at 80% in `vitest.config.mts`
+- [x] Playwright config points at `http://127.0.0.1:8000` (container) instead of `next dev`
 
 Tests:
-- [ ] Unit: `moveCard` edge cases (same position, unknown ids, empty column), column rename (commit on blur/Enter, revert on Escape), add/edit/delete card, `NewCardForm` validation and cancel, `KanbanCardPreview` rendering
-- [ ] E2E against container: board loads with 5 columns, add card, edit card, delete card, rename column, drag card between columns and within a column
+- [x] Unit: `moveCard` edge cases (same position, unknown ids, empty column), column rename (commit on blur/Enter, revert on Escape), add/edit/delete card, `NewCardForm` validation and cancel, `KanbanCardPreview` rendering
+- [x] E2E against container: board loads with 5 columns, add card, edit card, delete card, rename column, drag card between columns and within a column
 
 Success: Kanban demo is served by FastAPI at `/` from the container; unit coverage >= 80%; all e2e tests pass.
 

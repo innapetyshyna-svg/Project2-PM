@@ -178,3 +178,4 @@ cython_debug/
 # Project
 data/
 frontend/test-results/
+backend/static/

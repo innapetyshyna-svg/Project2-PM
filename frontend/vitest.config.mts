@@ -10,13 +10,15 @@ export default defineConfig({
     globals: true,
     coverage: {
       reporter: ["text", "html"],
+      include: ["src/**/*.{ts,tsx}"],
+      thresholds: { lines: 80 },
     },
     include: ["src/**/*.{test,spec}.{ts,tsx}"],
     exclude: ["node_modules", "tests"],
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
 });
