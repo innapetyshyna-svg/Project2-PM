@@ -174,3 +174,7 @@ cython_debug/
 
 .DS_Store
 
+
+# Project
+data/
+frontend/test-results/
