@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthGate } from "@/components/AuthGate";
+import { sampleBoard } from "@/test/fakeApi";
 
 const jsonResponse = (status: number, body: unknown) =>
   new Response(JSON.stringify(body), { status });
@@ -15,6 +16,9 @@ const mockFetch = (signedIn: boolean) => {
       return password === "password"
         ? jsonResponse(200, { username: "user" })
         : jsonResponse(401, {});
+    }
+    if (url === "/api/board") {
+      return jsonResponse(200, sampleBoard());
     }
     return jsonResponse(200, { status: "ok" });
   });

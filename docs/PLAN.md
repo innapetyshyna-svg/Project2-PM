@@ -104,15 +104,15 @@ Success: all backend tests pass; board state persists across container restarts.
 
 ## Part 7: Frontend + Backend
 
-- [ ] `src/lib/api.ts`: typed fetch helpers for the board routes
-- [ ] `KanbanBoard` loads board from API, applies changes optimistically and calls the API; on API error reloads board from server
-- [ ] Column rename (committed on blur/Enter since Part 3) calls `PATCH /api/columns/{id}`
-- [ ] Remove `initialData` from frontend (seed lives in backend)
+- [x] `src/lib/api.ts`: typed fetch helpers for the board routes
+- [x] `KanbanBoard` loads board from API, applies changes optimistically and calls the API; on API error reloads board from server
+- [x] Column rename (committed on blur/Enter since Part 3) calls `PATCH /api/columns/{id}`
+- [x] Remove `initialData` from frontend (seed lives in backend)
 
 Tests:
-- [ ] Unit: API helpers (fetch mocked), board loads data, each action calls the right endpoint, error triggers reload
-- [ ] E2E: every action persists after page reload; data persists after container restart (stop/start scripts); two logins see the same board
-- [ ] Coverage >= 80%
+- [x] Unit: API helpers (fetch mocked), board loads data, each action calls the right endpoint, error triggers reload
+- [x] E2E: every action persists after page reload; data persists after container restart (stop/start scripts); two logins see the same board
+- [x] Coverage >= 80%
 
 Success: fully persistent Kanban board through the UI.
 

@@ -1,4 +1,4 @@
-import { createId, moveCard, type Column } from "@/lib/kanban";
+import { moveCard, type Column } from "@/lib/kanban";
 
 describe("moveCard", () => {
   const baseColumns: Column[] = [
@@ -48,14 +48,5 @@ describe("moveCard edge cases", () => {
     const result = moveCard(columns, "card-2", "col-b");
     expect(result[0].cardIds).toEqual(["card-1"]);
     expect(result[1].cardIds).toEqual(["card-2"]);
-  });
-});
-
-describe("createId", () => {
-  it("uses the prefix and is unique", () => {
-    const a = createId("card");
-    const b = createId("card");
-    expect(a).toMatch(/^card-/);
-    expect(a).not.toBe(b);
   });
 });
