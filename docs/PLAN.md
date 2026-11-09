@@ -68,9 +68,9 @@ Success: board only visible after login with `user` / `password`; logout works; 
 
 ## Part 5: Database modeling
 
-- [ ] Write schema as `docs/schema.json` (tables, columns, types, keys, constraints)
-- [ ] Write `docs/DATABASE.md`: tables, ordering via `position`, cascade deletes, one board per user (unique `boards.user_id`), creation and seeding on startup, how login maps to a `users` row
-- [ ] User reviews and approves the schema
+- [x] Write schema as `docs/schema.json` (tables, columns, types, keys, constraints)
+- [x] Write `docs/DATABASE.md`: tables, ordering via `position`, cascade deletes, one board per user (unique `boards.user_id`), creation and seeding on startup, how login maps to a `users` row
+- [x] User reviews and approves the schema
 
 Proposed tables:
 - `users`: `id` PK, `username` unique
